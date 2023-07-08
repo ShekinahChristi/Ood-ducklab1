@@ -1,0 +1,5 @@
+.product-image {
+  display: inline-block;
+  margin: 10px;
+  cursor: pointer;
+}
