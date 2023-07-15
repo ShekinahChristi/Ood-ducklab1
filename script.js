@@ -98,10 +98,11 @@ function handleGoatClick(event) {
         {
           label: 'Views',
           data: productTimesShown,
-          backgroundColor: ['red'],
+          backgroundColor: ['orange'],
           borderColor: ['black'],
           borderWidth: 1,
         },
+        
         {
           label: 'Click(s)',
           data: producttimesClicked,

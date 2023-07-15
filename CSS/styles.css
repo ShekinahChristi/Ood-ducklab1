@@ -1,10 +1,19 @@
-
 body {
   font-family: Arial, sans-serif;
+  margin: 3rem auto; 
+ 
 }
 
 h1 {
-  text-align: center;
+  text-align:justify;
 }
 
+main img { border-style: dashed;
+  grid-column-start: 1;
+  grid-column-end: 3;
+}  
+
+canvas {
+  width: 25%;
+}
 
