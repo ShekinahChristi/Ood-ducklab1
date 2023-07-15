@@ -62,6 +62,7 @@ function handleGoatClick(event) {
   clicks++;
 
   console.log(clicks);
+
   let clickGoat = event.target.alt;
   for (let i = 0; i < products.oddproductsArray.length; i++) {
     if (clickGoat === products.oddproductsArray[i].name) {
@@ -71,15 +72,15 @@ function handleGoatClick(event) {
   }
   if (clicks === maxClicksAllowed) {
     goatContainer.removeEventListener('click', handleGoatClick);
-    // add event Listener to the results button
-    resultButton.addEventListener('click', renderResults);
-    resultButton.className = 'clicks-allowed';
+
+    renderChart();
+   
     goatContainer.className = 'no-voting';
   } else {
     renderproducts();
   }
 }
-function renderResults () 
+
   function renderChart() {
     let productName = [];
     let producttimesClicked = [];
@@ -97,8 +98,8 @@ function renderResults ()
         {
           label: 'Views',
           data: productTimesShown,
-          backgroundColor: ['green'],
-          borderColor: ['black)'],
+          backgroundColor: ['red'],
+          borderColor: ['black'],
           borderWidth: 1,
         },
         {
