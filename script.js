@@ -31,19 +31,17 @@ function Product(name, imagePath) {
 
 
 function renderproducts() {
-  let product1 = getRandomNumber(); 
-  let product2 = getRandomNumber();
-  let product3 = getRandomNumber();
-
-  
-  while (product1 === product2 || product3 === product1 || product2 === product3) {
-    if (product1 === product2 || product2 === product3) {
-      product2 = getRandomNumber();
-
-    } else if (product1 === product3){
-      product3 = getRandomNumber();
+  while (products.indexArray.length < uniqueImgCount) {
+    let randomNumber = getRandomNumber();
+    if (!products.indexArray.includes(randomNumber)) {
+      products.indexArray.push(randomNumber);
     }
   }
+
+  let product1 = products.indexArray.shift();
+  let product2 = products.indexArray.shift();
+  let product3 = products.indexArray.shift();
+
 
 
   image1.src =products.oddproductsArray[product1].imagePath;
@@ -131,7 +129,6 @@ function handleGoatClick(event) {
   
 
 let bag = new Product ('bag','img/bag.jpg');
-console.log('bag')
 let banana = new Product('banana', 'img/banana.jpg');
 let bathroom = new Product('bathroom', 'img/bathroom.jpg');
 let boots = new Product('boots', 'img/boots.jpg');
