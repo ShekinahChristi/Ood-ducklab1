@@ -34,6 +34,8 @@ function renderproducts() {
   let product1 = getRandomNumber(); 
   let product2 = getRandomNumber();
   let product3 = getRandomNumber();
+
+  
   while (product1 === product2 || product3 === product1 || product2 === product3) {
     if (product1 === product2 || product2 === product3) {
       product2 = getRandomNumber();
@@ -98,10 +100,11 @@ function handleGoatClick(event) {
         {
           label: 'Views',
           data: productTimesShown,
-          backgroundColor: ['red'],
+          backgroundColor: ['orange'],
           borderColor: ['black'],
           borderWidth: 1,
         },
+
         {
           label: 'Click(s)',
           data: producttimesClicked,
