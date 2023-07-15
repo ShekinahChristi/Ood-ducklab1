@@ -8,10 +8,12 @@ let image3 = document.querySelector('section img:nth-child(3)');
 
 
 let clicks = 0;
-let maxClicksAllowed = 9;
+let maxClicksAllowed = 25;
+let uniqueImgCount = 6;
 
 const products = {
-  oddproductsArray:[]
+  oddproductsArray:[],
+  indexArray:[]
 };
 
 function Product(name, imagePath) {
@@ -77,16 +79,52 @@ function handleGoatClick(event) {
     renderproducts();
   }
 }
-function renderResults() {
-  let ul = document.querySelector('ul');
-  for (let i = 0; i < products.oddproductsArray.length; i++) {
-    let li = document.createElement('li');
-    li.textContent = `${products.oddproductsArray[i].name} had ${products.oddproductsArray[i].timesShown} views and was clicked ${products.oddproductsArray[i].timesClicked} times.`;
-    ul.appendChild(li);
-    console.log('test')
+function renderResults () 
+  function renderChart() {
+    let productName = [];
+    let producttimesClicked = [];
+    let productTimesShown= [];
+  
+    for (let i = 0; i < products.oddproductsArray.length; i++) {
+      productName.push(products.oddproductsArray[i].name);
+      producttimesClicked.push(products.oddproductsArray[i].timesClicked);
+      productTimesShown.push(products.oddproductsArray[i].timesShown);
+    }
+  
+    const chartData = {
+      labels: productName,
+      datasets: [
+        {
+          label: 'Views',
+          data: productTimesShown,
+          backgroundColor: ['green'],
+          borderColor: ['black)'],
+          borderWidth: 1,
+        },
+        {
+          label: 'Click(s)',
+          data: producttimesClicked,
+          backgroundColor: ['blue'],
+          borderColor: ['rgb(black)'],
+          borderWidth: 1,
+        },
+      ],
+    };
+    const config = {
+      type: 'bar',
+      data: chartData,
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+          },
+        },
+      },
+    };
+    let chartCanvas = document.getElementById('myChart').getContext('2d');
+    const myChart = new Chart(chartCanvas, config);
   }
-}
-
+  
 
 let bag = new Product ('bag','img/bag.jpg');
 console.log('bag')
